@@ -9,16 +9,6 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Window.Resources>
-        <col:ArrayList x:Key="textFont">
-            <sys:String>Arial</sys:String>
-            <sys:String>Times New Roman</sys:String>
-            <sys:String>Verdana</sys:String>
-        </col:ArrayList>
-        <col:ArrayList x:Key="textHeght">
-            <sys:String>12</sys:String>
-            <sys:String>14</sys:String>
-            <sys:String>16</sys:String>
-        </col:ArrayList>
     </Window.Resources>
     <Window.CommandBindings>
         <CommandBinding Command="local:MyCommand.Exit" Executed="ExitExecuted"/>
@@ -35,23 +25,14 @@
             </MenuItem>
         </Menu>
         <Grid>
-
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
                 <RowDefinition/>
             </Grid.RowDefinitions>
             <ToolBarTray Grid.Row="0">
                 <ToolBar>
-                    <ComboBox Margin="5" Padding="5" SelectedIndex="0" Width="200" SelectionChanged="ComboBox_SelectionChanged">
-                        <TextBlock Text="Arial"/>
-                        <TextBlock Text="Times New Roman"/>
-                        <TextBlock Text="Verdana"/>
-                    </ComboBox>
-                    <ComboBox Margin="5" Padding="5" SelectedIndex="2" Width="50" SelectionChanged="ComboBox_SelectionChanged_1">
-                        <TextBlock Text="12"/>
-                        <TextBlock Text="14"/>
-                        <TextBlock Text="16"/>
-                    </ComboBox>
+                    <ComboBox Margin="5" Padding="5" Width="200" ItemsSource="{StaticResource textFont}" SelectedIndex="0" SelectionChanged="ComboBox_SelectionChanged"/>
+                    <ComboBox Margin="5" Padding="5" Width="50" ItemsSource="{StaticResource textHeght}" SelectedIndex="2" SelectionChanged="ComboBox_SelectionChanged_1"/>
                 </ToolBar>
                 <ToolBar Margin="5" Padding="5">
                     <Button Click="Button_Click">
@@ -72,13 +53,6 @@
                         <RadioButton Content="Красный" IsChecked="False" Checked="radioBottonRed_Checked" Foreground="Red"/>
                     </StackPanel>
                 </ToolBar>
-                <ToolBar>
-                    <ComboBox Margin="5" Padding="5" Width="200" ItemsSource="{StaticResource textFont}" SelectedIndex="0" SelectionChanged="ComboBox_SelectionChanged_2">
-                    </ComboBox>
-                    <ComboBox Margin="5" Padding="5" SelectedIndex="2" Width="50">
-                    </ComboBox>
-                </ToolBar>
-
             </ToolBarTray>
             <TextBox x:Name="textBox" Grid.Row="1" Margin="5" Padding="5" FontSize="16" FontFamily="Arial" TextWrapping="Wrap" FontWeight="Normal" FontStyle="Normal" TextDecorations="{x:Null}" Foreground="Black" VerticalScrollBarVisibility="Auto"/>
         </Grid>

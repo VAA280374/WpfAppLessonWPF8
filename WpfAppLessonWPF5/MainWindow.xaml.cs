@@ -17,9 +17,6 @@ using System.Windows.Shapes;
 
 namespace WpfAppLessonWPF5
 {
-    /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
         public MainWindow()
@@ -28,23 +25,20 @@ namespace WpfAppLessonWPF5
         }
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            string fontName = ((sender as ComboBox).SelectedItem as TextBlock).Text;
+            string fontName = (string)(sender as ComboBox).SelectedItem;
             if (textBox != null)
             {
                 textBox.FontFamily = new FontFamily(fontName);
             }
         }
-
         private void ComboBox_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
         {
-            double fontSise = Convert.ToDouble(((sender as ComboBox).SelectedItem as TextBlock).Text);
+            double fontSise = Convert.ToDouble((sender as ComboBox).SelectedItem);
             if (textBox != null)
             {
                 textBox.FontSize = fontSise;
             }
-
         }
-
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             if (textBox != null)
@@ -54,7 +48,6 @@ namespace WpfAppLessonWPF5
                 else textBox.FontWeight = FontWeights.Normal;
             }
         }
-
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             if (textBox != null)
@@ -64,7 +57,6 @@ namespace WpfAppLessonWPF5
                 else textBox.FontStyle = FontStyles.Normal;
             }
         }
-
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
             if (textBox != null)
@@ -74,7 +66,6 @@ namespace WpfAppLessonWPF5
                 else textBox.TextDecorations = null;
             }
         }
-
         private void RadioButtonBlack_Checked(object sender, RoutedEventArgs e)
         {
             if (textBox != null)
@@ -86,7 +77,6 @@ namespace WpfAppLessonWPF5
                 }
             }
         }
-
         private void radioBottonRed_Checked(object sender, RoutedEventArgs e)
         {
             if (textBox != null)
@@ -97,29 +87,7 @@ namespace WpfAppLessonWPF5
                     textBox.Foreground = brush;
                 }
             }
-
         }
-
-        //private void MenuItem_Click(object sender, RoutedEventArgs e) // Открыть
-        //{
-        //    OpenFileDialog openFileDialog = new OpenFileDialog();
-        //    openFileDialog.Filter = "Текстовые файлы (*.txt)|*.txt";
-        //    if (openFileDialog.ShowDialog() == true)
-        //    {
-        //        textBox.Text = File.ReadAllText(openFileDialog.FileName);
-        //    }
-        //}
-
-        //private void MenuItem_Click_1(object sender, RoutedEventArgs e) // Сохзранить
-        //{
-        //    SaveFileDialog saveFileDialog = new SaveFileDialog();
-        //    saveFileDialog.Filter = "Текстовые файлы (*.txt)|*.txt";
-        //    if (saveFileDialog.ShowDialog() == true)
-        //    { 
-        //        File.WriteAllText(saveFileDialog.FileName, textBox.Text);
-        //    }
-        //}
-
         private void ExitExecuted(object sender, ExecutedRoutedEventArgs e)
         {
             Application.Current.Shutdown();
@@ -144,20 +112,5 @@ namespace WpfAppLessonWPF5
                 File.WriteAllText(saveFileDialog.FileName, textBox.Text);
             }
         }
-
-        private void ComboBox_SelectionChanged_2(object sender, SelectionChangedEventArgs e)
-        {
-            string fontName = (string)(sender as ComboBox).SelectedItem;
-            if (textBox != null)
-            {
-                textBox.FontFamily = new FontFamily(fontName);
-            }
-
-        }
-
-        //private void MenuItem_Click_2(object sender, RoutedEventArgs e) // Выход
-        //{
-        //    Application.Current.Shutdown();
-        //}
     }
 }
