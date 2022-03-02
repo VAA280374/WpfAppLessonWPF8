@@ -145,6 +145,16 @@ namespace WpfAppLessonWPF5
             }
         }
 
+        private void ComboBox_SelectionChanged_2(object sender, SelectionChangedEventArgs e)
+        {
+            string fontName = (string)(sender as ComboBox).SelectedItem;
+            if (textBox != null)
+            {
+                textBox.FontFamily = new FontFamily(fontName);
+            }
+
+        }
+
         //private void MenuItem_Click_2(object sender, RoutedEventArgs e) // Выход
         //{
         //    Application.Current.Shutdown();
